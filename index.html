@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrada onyx - global</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+    <main>
+        <div class="container">
+            <div class="content">
+                <h1>Update Deals Onyx</h1>
+                
+                <div class="input-section">
+                    <label for="textInput">Digite o número da entrada (máximo 8 caracteres):</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="text" 
+                            id="textInput" 
+                            maxlength="8" 
+                            placeholder="Digite aqui..."
+                            autocomplete="off"
+                        >
+                        <span class="char-counter">
+                            <span id="charCount">0</span>/8
+                        </span>
+                    </div>
+                    <p class="hint">O texto será adicionado automaticamente quando atingir 8 caracteres</p>
+                    <div class="status-select-wrapper">
+                        <label for="commentSelect">Tipo de atualização (COMMENTS):</label>
+                        <select id="commentSelect" class="comment-select">
+                            <option value="Produto enviado para reparo em Filial - Enviado Filial">Produto enviado para reparo em Filial - Enviado Filial</option>
+                            <option value="Produto recebido de reparo em Filial - Recebido Filial">Produto recebido de reparo em Filial - Recebido Filial</option>
+                            <option value="Peças recebidas para reparo - Peças recebidas">Peças recebidas para reparo - Peças recebidas</option>
+                            <option value="Produto para venda no estado - Venda no estado">Produto para venda no estado - Venda no estado</option>
+                            <option value="Produto vendido - Produto vendido">Produto vendido - Produto vendido</option>
+                        </select>
+                    </div>
+                    <div id="errorMessage" class="error-message" style="display: none;">
+                        <span class="error-icon">⚠️</span>
+                        <span class="error-text">Este item já foi inserido anteriormente!</span>
+                    </div>
+                </div>
+
+                <div class="list-section">
+                    <div class="list-header">
+                        <h2>Itens Adicionados (<span id="itemCount">0</span>)</h2>
+                        <button id="processBtn" class="process-btn" onclick="processarEntrada()">
+                            Atualizar Deals
+                        </button>
+                    </div>
+                    <div id="itemsList" class="items-list">
+                        <p class="empty-message">Nenhum item adicionado ainda.</p>
+                    </div>
+                    <div id="completionMessage" class="completion-message" style="display: none;">
+                        <span class="completion-icon">✓</span>
+                        <span class="completion-text">Concluído</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>Copyright 2026 - Entrada onyx - global</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
