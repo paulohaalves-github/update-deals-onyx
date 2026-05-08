@@ -1,0 +1,180 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0a0a0a;
+    color: #111;
+    min-height: 100vh;
+}
+
+main {
+    padding: 48px 16px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.content {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.input-section {
+    border: 1px solid #e8e8e8;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 24px;
+    background: #fafafa;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.input-row {
+    display: flex;
+    gap: 12px;
+}
+
+#dealIdInput {
+    flex: 1;
+    border: 2px solid #d0d0d0;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 1rem;
+    outline: none;
+}
+
+#dealIdInput:focus {
+    border-color: #000;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.08);
+}
+
+#consultarBtn {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    background: #000;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#consultarBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.status-message {
+    margin-top: 10px;
+    font-weight: 600;
+    min-height: 20px;
+}
+
+.status-message.success {
+    color: #0d6e2b;
+}
+
+.status-message.error {
+    color: #a81f1f;
+}
+
+.result-card {
+    border: 1px solid #e3e3e3;
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.result-card h2 {
+    margin-bottom: 16px;
+}
+
+.result-field + .result-field {
+    margin-top: 14px;
+}
+
+.field-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.field-value {
+    font-size: 1rem;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.sale-section {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e8e8e8;
+}
+
+.sale-row {
+    display: flex;
+    gap: 12px;
+}
+
+#notaInput {
+    flex: 1;
+    border: 2px solid #d0d0d0;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 1rem;
+    outline: none;
+}
+
+#notaInput:focus {
+    border-color: #000;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.08);
+}
+
+#vendaEfetuadaBtn {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    background: #0f5132;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#vendaEfetuadaBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .content {
+        padding: 22px;
+    }
+
+    .input-row {
+        flex-direction: column;
+    }
+
+    .sale-row {
+        flex-direction: column;
+    }
+}

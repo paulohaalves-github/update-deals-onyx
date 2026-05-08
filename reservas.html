@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas - Consulta de Negocio</title>
+    <link rel="stylesheet" href="reservas.css">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="content">
+                <h1>Consulta de Reservas</h1>
+
+                <div class="input-section">
+                    <label for="dealIdInput">ID do Negocio no Bitrix</label>
+                    <div class="input-row">
+                        <input
+                            type="text"
+                            id="dealIdInput"
+                            placeholder="Digite o ID do negocio"
+                            autocomplete="off"
+                        >
+                        <button id="consultarBtn" type="button">Consultar</button>
+                    </div>
+                    <p id="statusMessage" class="status-message" aria-live="polite"></p>
+                </div>
+
+                <div id="resultCard" class="result-card hidden">
+                    <h2>Dados do Negocio</h2>
+                    <div class="result-field">
+                        <span class="field-label">Nome do negocio</span>
+                        <p id="dealName" class="field-value"></p>
+                    </div>
+                    <div class="result-field">
+                        <span class="field-label">Comentario</span>
+                        <p id="dealComment" class="field-value"></p>
+                    </div>
+                    <div class="sale-section">
+                        <label for="notaInput">Numero da Nota</label>
+                        <div class="sale-row">
+                            <input
+                                type="text"
+                                id="notaInput"
+                                placeholder="Digite o numero da nota"
+                                autocomplete="off"
+                            >
+                            <button id="vendaEfetuadaBtn" type="button">Venda Efetuada</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="reservas.js"></script>
+</body>
+</html>

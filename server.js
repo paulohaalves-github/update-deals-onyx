@@ -18,6 +18,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname)); // Servir arquivos estáticos
 
+app.get('/reservas', (req, res) => {
+  res.sendFile(`${__dirname}/reservas.html`);
+});
+
 // Configuração da API Bitrix
 const bitrixApi = axios.create({
   baseURL: process.env.BITRIX_WEBHOOK,
@@ -60,6 +64,47 @@ app.get('/api/negocios', async (req, res) => {
     res.status(500).json({ 
       error: 'Erro ao consultar negócios',
       result: [] 
+    });
+  }
+});
+
+// Endpoint para consultar negócio por ID
+app.get('/api/negocios/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    if (!id || !/^\d+$/.test(id)) {
+      return res.status(400).json({
+        error: 'ID do negócio inválido',
+        result: null
+      });
+    }
+
+    console.log(`📄 [${new Date().toLocaleTimeString()}] Consultando negócio por ID "${id}" ...`);
+
+    const resposta = await bitrixApi.post("crm.deal.get", { id });
+    const negocio = resposta?.data?.result || null;
+
+    if (!negocio) {
+      return res.status(404).json({
+        error: 'Negócio não encontrado',
+        result: null
+      });
+    }
+
+    res.json({
+      result: {
+        ID: negocio.ID,
+        TITLE: negocio.TITLE || '',
+        COMMENTS: negocio.COMMENTS || ''
+      }
+    });
+  } catch (err) {
+    const detalheErro = err.response?.data || err.message;
+    console.error(`❌ [${new Date().toLocaleTimeString()}] Erro ao consultar negócio por ID:`, detalheErro);
+    res.status(500).json({
+      error: 'Erro ao consultar negócio por ID',
+      result: null
     });
   }
 });
